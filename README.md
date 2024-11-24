@@ -41,12 +41,18 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 > pip install -r requirements.txt
 
 
+### LLM
+
+Ollama로 하고 싶으면 app/services/rag_service.py 코드에 들어가서 
+ChatOllama로 바꿔준다.
+
+ChatOpenAI로 하고 싶으면 .env 파일을 만들어서 OPENAI_API_KEY 키를 넣어준다.
+
+
 ### uvicorn 실행
 
 > uvicorn app.main:app --reload
 
-
-![스크린샷 2024-11-20 17-06-36](https://github.com/user-attachments/assets/9195ad5a-59ef-479d-9f6d-cf79d7b8783e)
-
+![스크린샷 2024-11-24 15-23-28](https://github.com/user-attachments/assets/dd2b1c62-e7a5-40d4-b1b3-a3ddb4babe9a)
 
 
