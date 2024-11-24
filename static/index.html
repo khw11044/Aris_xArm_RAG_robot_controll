@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera and Chatbot</title>
+    <link rel="stylesheet" href="/static/style1.css">
+    <link rel="stylesheet" href="/static/style2.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 왼쪽 영역 -->
+        <div class="left-container">
+            <!-- 카메라 스위치 컨트롤 -->
+            <div class="camera-controls">
+                <label>
+                    <span>Camera 1</span>
+                    <label class="switch">
+                        <input type="checkbox" id="camera1-toggle" onchange="toggleCamera(0)">
+                        <span class="slider"></span>
+                    </label>
+                </label>
+                <label>
+                    <span>Camera 2</span>
+                    <label class="switch">
+                        <input type="checkbox" id="camera2-toggle" onchange="toggleCamera(2)">
+                        <span class="slider"></span>
+                    </label>
+                </label>
+                <label>
+                    <span>Camera 3</span>
+                    <label class="switch">
+                        <input type="checkbox" id="camera3-toggle" onchange="toggleCamera(4)">
+                        <span class="slider"></span>
+                    </label>
+                </label>
+            </div>
+
+            <!-- 카메라 스트리밍 그리드 -->
+            <div class="camera-grid">
+                <!-- 카메라 1 -->
+                <div class="camera-stream" id="camera1">
+                    <img id="camera1-feed" src="" alt="Camera 1 Feed" class="camera-feed">
+                </div>
+                <!-- 카메라 2 -->
+                <div class="camera-stream" id="camera2">
+                    <img id="camera2-feed" src="" alt="Camera 2 Feed" class="camera-feed">
+                </div>
+                <!-- 카메라 3 -->
+                <div class="camera-stream" id="camera3">
+                    <img id="camera3-feed" src="" alt="Camera 3 Feed" class="camera-feed">
+                </div>
+                <!-- 2행 2열의 이미지 -->
+                <div class="camera-placeholder">
+                    <img src="/static/imgs/image.png" alt="Menu Placeholder" class="placeholder-image">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 가운데 회색선 -->
+        <div class="divider"></div>
+
+        <!-- 오른쪽 영역 (챗봇 창) -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>AI receptionist</h1>
+                
+                <!-- 얼굴 라벨 및 카운트다운 표시 -->
+                <div id="face-label" class="face-label">Detected Face: None</div>
+                <div id="countdown-timer" class="countdown-timer"></div>
+
+                <!-- 볼륨 게이지 섹션 -->
+                <div id="volume-section">
+                    <div id="volume-display">Volume: 0%</div>
+                    <div id="volume-bar-container">
+                        <div id="volume-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-box" id="chat-box">
+                <!-- 대화 메시지가 여기에 추가됩니다. -->
+            </div>
+
+
+            <div class="chat-box" id="chat-box">
+                <!-- 대화 메시지가 여기에 추가됩니다. -->
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="메시지를 입력하세요..." onkeypress="handleKeyPress(event)">
+                
+                <!-- 마이크 On/Off 스위치 (음성 인식용) -->
+                <label class="switch">
+                    <input type="checkbox" id="speech-recognition">
+                    <span class="slider"></span>
+                </label>
+
+                <button onclick="sendMessage()">전송</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
